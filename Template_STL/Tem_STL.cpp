@@ -8,10 +8,10 @@ class SimpleVector {
 private:
 	T* arr;
 	int cap;
-	int siz = 0;
+	int siz;
 
 public:
-	SimpleVector(int i = 10) : cap(i) {
+	SimpleVector(int i = 10) : cap(i), siz(0) {
 		arr = new T[i];
 	}
 

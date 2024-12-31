@@ -7,33 +7,33 @@ template <typename T>
 class SimpleVector {
 private:
 	T* arr;
-	int cap;
-	int siz;
+	int currentCapacity;
+	int currnetSize;
 
 public:
-	SimpleVector(int i = 10) : cap(i), siz(0) {
+	SimpleVector(int i = 10) : currentCapacity(i), currnetSize(0) {
 		arr = new T[i];
 	}
 
 	void push_back(T num) {
-		if (siz < cap) {
-			arr[siz] = num;
-			siz++;
+		if (currnetSize < currentCapacity) {
+			arr[currnetSize] = num;
+			currnetSize++;
 		}
 	}
 
 	void pop_back() {
-		if (siz > 0) {
-			siz--;
+		if (currnetSize > 0) {
+			currnetSize--;
 		}
 	}
 	
 	int size() {
-		return siz;
+		return currnetSize;
 	}
 
 	int capacity() {
-		return cap;
+		return currentCapacity;
 	}
 
 	~SimpleVector() {

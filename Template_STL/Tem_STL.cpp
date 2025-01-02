@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -15,10 +16,25 @@ public:
 		arr = new T[i];
 	}
 
+	void resize(int newCapacity) {
+		if (newCapacity > currentCapacity) {
+			currentCapacity = newCapacity;
+		}
+	}
+
+	void sortData() {
+		sort(arr.begin(), arr.end());
+	}
+
 	void push_back(const T& value) {
 		if (currnetSize < currentCapacity) {
 			arr[currnetSize] = value;
 			currnetSize++;
+		}
+		else{
+			currnetSize++;
+			currentCapacity += 5;
+			arr[currnetSize] = value;
 		}
 	}
 
@@ -46,15 +62,25 @@ public:
 int main() {
 
 	SimpleVector<int> vec;
+	SimpleVector<int> vec1(5);
 
 	cout << vec.size()<< " " << vec.capacity() << endl;
+	cout << vec1.size() << " " << vec1.capacity() << endl;
 
 	vec.push_back(10);
 	vec.push_back(20);
 	vec.push_back(30);
 	vec.push_back(40);
+	vec1.push_back(40);
+	vec1.push_back(40);
+	vec1.push_back(40);
+	vec1.push_back(40);
+	vec1.push_back(40);
+	vec1.push_back(40);
+	vec1.push_back(40);
 
 	cout << vec.size() << " " << vec.capacity() << endl;
+	cout << vec1.size() << " " << vec1.capacity() << endl;
 
 	vec.pop_back();
 	vec.pop_back();

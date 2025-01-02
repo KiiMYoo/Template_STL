@@ -15,9 +15,9 @@ public:
 		arr = new T[i];
 	}
 
-	void push_back(T num) {
+	void push_back(const T& value) {
 		if (currnetSize < currentCapacity) {
-			arr[currnetSize] = num;
+			arr[currnetSize] = value;
 			currnetSize++;
 		}
 	}

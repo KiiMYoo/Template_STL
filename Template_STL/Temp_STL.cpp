@@ -41,9 +41,9 @@ public:
 			currnetSize++;
 		}
 		else {
-			currnetSize++;
 			currentCapacity += 5;
 			arr[currnetSize] = value;
+			currnetSize++;
 		}
 	}
 
@@ -66,3 +66,12 @@ public:
 	}
 
 };
+
+int main() {
+	SimpleVector<int> vec;
+	SimpleVector<int> vec1(15);
+	SimpleVector<int> vec2(vec1);
+
+	cout << vec.capacity() << " " << vec1.capacity() << " " << vec2.capacity() << endl;
+
+}

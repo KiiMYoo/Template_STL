@@ -16,6 +16,15 @@ public:
 		arr = new T[i];
 	}
 
+	SimpleVector(const SimpleVector& other) {
+		currentCapacity = other.currentCapacity;
+		currnetSize = other.currnetSize;
+		arr = new T[currentCapacity];
+		for (int i = 0; i < currnetSize; i++) {
+			arr[i] = other.arr[i];
+		}
+	}
+
 	void resize(int newCapacity) {
 		if (newCapacity > currentCapacity) {
 			currentCapacity = newCapacity;
@@ -31,7 +40,7 @@ public:
 			arr[currnetSize] = value;
 			currnetSize++;
 		}
-		else{
+		else {
 			currnetSize++;
 			currentCapacity += 5;
 			arr[currnetSize] = value;
@@ -43,7 +52,7 @@ public:
 			currnetSize--;
 		}
 	}
-	
+
 	int size() {
 		return currnetSize;
 	}
@@ -57,35 +66,3 @@ public:
 	}
 
 };
-
-
-int main() {
-
-	SimpleVector<int> vec;
-	SimpleVector<int> vec1(5);
-
-	cout << vec.size()<< " " << vec.capacity() << endl;
-	cout << vec1.size() << " " << vec1.capacity() << endl;
-
-	vec.push_back(10);
-	vec.push_back(20);
-	vec.push_back(30);
-	vec.push_back(40);
-	vec1.push_back(40);
-	vec1.push_back(40);
-	vec1.push_back(40);
-	vec1.push_back(40);
-	vec1.push_back(40);
-	vec1.push_back(40);
-	vec1.push_back(40);
-
-	cout << vec.size() << " " << vec.capacity() << endl;
-	cout << vec1.size() << " " << vec1.capacity() << endl;
-
-	vec.pop_back();
-	vec.pop_back();
-
-	cout << vec.size() << " " << vec.capacity() << endl;
-
-	return 0;
-}
